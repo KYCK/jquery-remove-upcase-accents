@@ -1,4 +1,4 @@
-﻿/*
+/*
  * jQuery Remove Uppercase Accents v1.0.1
  * http://github.com/ebababi/jquery-remove-upcase-accents/
  *
@@ -25,58 +25,58 @@
 (function( jQuery ) {
 
 jQuery.extend(jQuery.expr[":"], {
-	uppercase: function( elem ) {
-		var attr = jQuery( elem ).css( "text-transform" );
-		return ( typeof attr !== "undefined" && attr === "uppercase" );
-		},
-	smallcaps: function( elem ) {
-		var attr = jQuery( elem ).css( "font-variant" );
-		return ( typeof attr !== "undefined" && attr === "small-caps" );
-	}
+    uppercase: function( elem ) {
+        var attr = jQuery( elem ).css( "text-transform" );
+        return ( typeof attr !== "undefined" && attr === "uppercase" );
+        },
+    smallcaps: function( elem ) {
+        var attr = jQuery( elem ).css( "font-variant" );
+        return ( typeof attr !== "undefined" && attr === "small-caps" );
+    }
 });
 
 jQuery.extend({
-	removeAcc: function( elem ) {
-		var text = elem.innerHTML;
+    removeAcc: function( elem ) {
+        var text = elem.innerHTML;
 
-		text = text.replace( /Ά/g, "Α" );
-		text = text.replace( /ά/g, "α" );
-		text = text.replace( /Έ/g, "Ε" );
-		text = text.replace( /έ/g, "ε" );
-		text = text.replace( /Ή/g, "Η" );
-		text = text.replace( /ή/g, "η" );
-		text = text.replace( /Ί/g, "Ι" );
-		text = text.replace( /Ϊ/g, "Ι" );
-		text = text.replace( /ί/g, "ι" );
-		text = text.replace( /ϊ/g, "ι" );
-		text = text.replace( /ΐ/g, "ι" );
-		text = text.replace( /Ό/g, "Ο" );
-		text = text.replace( /ό/g, "ο" );
-		text = text.replace( /Ύ/g, "Υ" );
-		text = text.replace( /Ϋ/g, "Υ" );
-		text = text.replace( /ύ/g, "υ" );
-		text = text.replace( /ϋ/g, "υ" );
-		text = text.replace( /ΰ/g, "υ" );
-		text = text.replace( /Ώ/g, "Ω" );
-		text = text.replace( /ώ/g, "ω" );
+        text = text.replace( /Ά/g, "Α" )
+                   .replace( /ά/g, "α" )
+                   .replace( /Έ/g, "Ε" )
+                   .replace( /έ/g, "ε" )
+                   .replace( /Ή/g, "Η" )
+                   .replace( /ή/g, "η" )
+                   .replace( /Ί/g, "Ι" )
+                   .replace( /Ϊ/g, "Ι" )
+                   .replace( /ί/g, "ι" )
+                   .replace( /ϊ/g, "ι" )
+                   .replace( /ΐ/g, "ι" )
+                   .replace( /Ό/g, "Ο" )
+                   .replace( /ό/g, "ο" )
+                   .replace( /Ύ/g, "Υ" )
+                   .replace( /Ϋ/g, "Υ" )
+                   .replace( /ύ/g, "υ" )
+                   .replace( /ϋ/g, "υ" )
+                   .replace( /ΰ/g, "υ" )
+                   .replace( /Ώ/g, "Ω" )
+                   .replace( /ώ/g, "ω" );
 
-		elem.innerHTML = text;
-	}
+        elem.innerHTML = text;
+    }
 });
 
 jQuery.fn.extend({
-	removeAcc: function() {
-		return this.each(function() {
-			jQuery.removeAcc( this );
-		});
-	}
+    removeAcc: function() {
+        return this.each(function() {
+            jQuery.removeAcc( this );
+        });
+    }
 });
 
 })( jQuery );
 
 jQuery( document ).ready(function($) {
-	$(":uppercase, :smallcaps").removeAcc();
-	$(document).ajaxComplete(function( event, request, settings ) {
-		$(":uppercase, :smallcaps").removeAcc();
-	});
+    $(":uppercase, :smallcaps").removeAcc();
+    $(document).ajaxComplete(function( event, request, settings ) {
+        $(":uppercase, :smallcaps").removeAcc();
+    });
 });
